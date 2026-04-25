@@ -43,6 +43,13 @@ export default function LandingPage() {
 
   return (
     <Layout>
+      <header className="fixed top-0 left-0 right-0 z-30 flex items-center justify-between px-8 py-5">
+        <div className="flex items-center gap-2">
+          <span className="text-2xl">🚀</span>
+          <span className="text-white font-bold text-xl tracking-wider">РАКЕТА</span>
+        </div>
+        <span className="text-[#FF4D00] text-sm font-medium tracking-widest uppercase">Такси</span>
+      </header>
       <nav className="fixed top-0 right-0 h-screen flex flex-col justify-center z-30 p-4">
         {sections.map((section, index) => (
           <button
