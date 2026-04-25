@@ -95,6 +95,51 @@ function FleetSection({ isActive }: { isActive: boolean }) {
   )
 }
 
+function TeamSection({ isActive }: { isActive: boolean }) {
+  const team = [
+    { name: "Шалин Александр Алексеевич", role: "Генеральный директор", icon: "Crown" },
+    { name: "Сорокин Алексей Алексеевич", role: "Руководитель отдела перевозок", icon: "Truck" },
+    { name: "Евпатий Олегович Коловрат", role: "Начальник отдела безопасности", icon: "ShieldCheck" },
+  ]
+  return (
+    <section className="relative h-screen w-full snap-start flex flex-col justify-center p-8 md:p-16 lg:p-24">
+      <motion.h2
+        className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight"
+        initial={{ opacity: 0, y: 40 }}
+        animate={isActive ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
+      >
+        Наша команда
+      </motion.h2>
+      <motion.p
+        className="text-neutral-400 text-lg md:text-xl max-w-xl mb-12"
+        initial={{ opacity: 0, y: 30 }}
+        animate={isActive ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5, delay: 0.15 }}
+      >
+        Профессионалы, которые делают каждую поездку безопасной и комфортной
+      </motion.p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
+        {team.map((member, i) => (
+          <motion.div
+            key={member.name}
+            className="border border-[#7B61FF40] rounded-2xl p-6 bg-[#7B61FF08] backdrop-blur-sm"
+            initial={{ opacity: 0, y: 40 }}
+            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 + i * 0.15 }}
+          >
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#7B61FF] to-[#4FC3F7] flex items-center justify-center mb-4">
+              <Icon name={member.icon} size={24} className="text-white" />
+            </div>
+            <h3 className="text-white font-semibold text-base leading-snug mb-1">{member.name}</h3>
+            <p className="text-[#7B61FF] text-sm">{member.role}</p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 function ContactsSection({ isActive }: { isActive: boolean }) {
   const contacts = [
     { icon: "Phone", label: "Телефон", value: "+7 (800) 555-35-35", sub: "Бесплатно по России" },
@@ -120,25 +165,41 @@ function ContactsSection({ isActive }: { isActive: boolean }) {
       >
         Работаем круглосуточно — поддержка всегда на связи
       </motion.p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl">
-        {contacts.map((c, i) => (
-          <motion.div
-            key={c.label}
-            className="flex items-center gap-4 border border-white/10 rounded-2xl p-5 bg-white/5 backdrop-blur-sm"
-            initial={{ opacity: 0, x: -30 }}
-            animate={isActive ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-          >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#7B61FF] to-[#4FC3F7] flex items-center justify-center flex-shrink-0">
-              <Icon name={c.icon} size={22} className="text-white" />
-            </div>
-            <div>
-              <p className="text-neutral-500 text-xs mb-0.5">{c.label}</p>
-              <p className="text-white font-semibold">{c.value}</p>
-              <p className="text-neutral-500 text-xs">{c.sub}</p>
-            </div>
-          </motion.div>
-        ))}
+      <div className="flex flex-col md:flex-row gap-6 max-w-5xl w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-shrink-0">
+          {contacts.map((c, i) => (
+            <motion.div
+              key={c.label}
+              className="flex items-center gap-4 border border-white/10 rounded-2xl p-5 bg-white/5 backdrop-blur-sm"
+              initial={{ opacity: 0, x: -30 }}
+              animate={isActive ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+            >
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#7B61FF] to-[#4FC3F7] flex items-center justify-center flex-shrink-0">
+                <Icon name={c.icon} size={22} className="text-white" />
+              </div>
+              <div>
+                <p className="text-neutral-500 text-xs mb-0.5">{c.label}</p>
+                <p className="text-white font-semibold">{c.value}</p>
+                <p className="text-neutral-500 text-xs">{c.sub}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        <motion.div
+          className="flex-1 min-h-[280px] rounded-2xl overflow-hidden border border-white/10"
+          initial={{ opacity: 0, x: 30 }}
+          animate={isActive ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=37.5%2C55.7%2C37.7%2C55.8&layer=mapnik"
+            width="100%"
+            height="100%"
+            style={{ border: 0, minHeight: '280px', filter: 'invert(0.9) hue-rotate(180deg) brightness(0.85)' }}
+            title="Карта офиса"
+          />
+        </motion.div>
       </div>
     </section>
   )
@@ -147,6 +208,7 @@ function ContactsSection({ isActive }: { isActive: boolean }) {
 export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, custom }: SectionProps) {
   if (custom === 'about') return <AboutSection isActive={isActive} />
   if (custom === 'fleet') return <FleetSection isActive={isActive} />
+  if (custom === 'team') return <TeamSection isActive={isActive} />
   if (custom === 'contacts') return <ContactsSection isActive={isActive} />
 
   return (

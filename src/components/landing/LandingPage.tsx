@@ -47,7 +47,7 @@ export default function LandingPage() {
         <img
           src="https://cdn.poehali.dev/projects/32982079-8b3f-4572-a356-2ae447bde05d/bucket/bd4e7473-6c04-4e3e-9185-f43e5e68c952.png"
           alt="Такси Ракета"
-          className="h-12 object-contain"
+          className="h-36 object-contain"
         />
       </header>
       <nav className="fixed top-0 right-0 h-screen flex flex-col justify-center z-30 p-4">

@@ -22,6 +22,10 @@ export const sections = [
     content: 'Более 2 миллионов поездок совершено без единого серьёзного инцидента. Рейтинг 4.9 из 5 по отзывам клиентов.'
   },
   {
+    id: 'team',
+    custom: 'team',
+  },
+  {
     id: 'contacts',
     custom: 'contacts',
   },
