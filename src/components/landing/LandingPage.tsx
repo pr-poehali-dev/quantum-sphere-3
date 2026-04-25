@@ -43,27 +43,28 @@ export default function LandingPage() {
 
   return (
     <Layout>
-      <header className="fixed top-0 left-0 right-0 z-30 flex items-center justify-between px-8 py-5">
-        <div className="flex items-center gap-2">
-          <span className="text-2xl">🚀</span>
-          <span className="text-white font-bold text-xl tracking-wider">РАКЕТА</span>
-        </div>
-        <span className="text-[#FF4D00] text-sm font-medium tracking-widest uppercase">Такси</span>
+      <header className="fixed top-0 left-0 right-0 z-30 flex items-center px-8 py-4">
+        <img
+          src="https://cdn.poehali.dev/projects/32982079-8b3f-4572-a356-2ae447bde05d/bucket/bd4e7473-6c04-4e3e-9185-f43e5e68c952.png"
+          alt="Такси Ракета"
+          className="h-12 object-contain"
+        />
       </header>
       <nav className="fixed top-0 right-0 h-screen flex flex-col justify-center z-30 p-4">
         {sections.map((section, index) => (
           <button
             key={section.id}
-            className={`w-3 h-3 rounded-full my-2 transition-all ${
-              index === activeSection ? 'bg-white scale-150' : 'bg-gray-600'
+            className={`w-2.5 h-2.5 rounded-full my-2 transition-all ${
+              index === activeSection ? 'scale-150' : 'bg-gray-600'
             }`}
+            style={index === activeSection ? { background: 'linear-gradient(135deg, #7B61FF, #4FC3F7)' } : {}}
             onClick={() => handleNavClick(index)}
           />
         ))}
       </nav>
       <motion.div
-        className="fixed top-0 left-0 right-0 h-0.5 bg-white origin-left z-30"
-        style={{ scaleX }}
+        className="fixed top-0 left-0 right-0 h-0.5 origin-left z-40"
+        style={{ scaleX, background: 'linear-gradient(90deg, #7B61FF, #4FC3F7)' }}
       />
       <div
         ref={containerRef}

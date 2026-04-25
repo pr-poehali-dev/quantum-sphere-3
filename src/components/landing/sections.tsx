@@ -3,20 +3,18 @@ import { Badge } from "@/components/ui/badge"
 export const sections = [
   {
     id: 'hero',
-    subtitle: <Badge variant="outline" className="text-[#FF4D00] border-[#FF4D00]">🚀 Быстро. Безопасно. Ракета.</Badge>,
+    subtitle: <Badge variant="outline" className="text-[#7B61FF] border-[#7B61FF] bg-[#7B61FF10]">🚀 Долетим быстрее всех</Badge>,
     title: "Такси, которое летит к вам.",
     showButton: true,
     buttonText: 'Заказать такси'
   },
   {
-    id: 'safety',
-    title: 'Безопасность — наш приоритет.',
-    content: 'Все водители проходят строгую проверку: медицинский контроль, психологическое тестирование и верификацию документов. Каждая поездка застрахована.'
+    id: 'about',
+    custom: 'about',
   },
   {
-    id: 'speed',
-    title: 'Подача за 3 минуты.',
-    content: 'Умный алгоритм выбирает ближайшего водителя. 97% заявок выполняется в течение 3 минут — даже в час пик.'
+    id: 'fleet',
+    custom: 'fleet',
   },
   {
     id: 'stats',
@@ -24,10 +22,7 @@ export const sections = [
     content: 'Более 2 миллионов поездок совершено без единого серьёзного инцидента. Рейтинг 4.9 из 5 по отзывам клиентов.'
   },
   {
-    id: 'cta',
-    title: 'Поехали с нами?',
-    content: 'Первая поездка — со скидкой 50%. Скачайте приложение и убедитесь, что безопасность и скорость могут быть вместе.',
-    showButton: true,
-    buttonText: 'Заказать поездку'
+    id: 'contacts',
+    custom: 'contacts',
   },
 ]
